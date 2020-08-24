@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="/scripts/scripts.js" defer></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+<body>
+    <header class="fixed-top">
+        <div class="jumbotron shadow">
+            <div class="container">
+                <h1 class="display-4">Привет, <span class="title-name"></span></h1>
+                <p class="lead"><span class="title-info"></span></p>
+                <hr class="my-4">
+                <div class="row">
+                    <button class="btn btn-primary newUser mr-1" type="button" data-toggle="collapse" data-target="#newUser" aria-expanded="false" aria-controls="newUser">Зарегистрировать</button>
+                    <button class="btn btn-secondary addUser mr-1" type="button" data-toggle="collapse" data-target="#addUser" aria-expanded="false" aria-controls="addUser">Авторироваться</button>
+                    <button class="btn btn-danger outUser mr-1">Выйти</button>
+                </div>
+                <div class="collapse" id="newUser">
+                    <hr class="my-4">
+                    <form class="newUserForm">
+                        <div class="form-group">
+                            <label for="newUserInfo">Имя и Фамилия</label>
+                            <input type="text" class="form-control" id="newUserInfo" aria-describedby="userInfoHelp" placeholder="Введите значения через запятую" required>
+                            <small id="userInfoHelp" class="form-text text-muted">Чтобы мы знали как к тебе обращаться.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="newLogin">Логин</label>
+                            <input type="text" class="form-control" id="newLogin" aria-describedby="loginHelp" placeholder="Только латинские буквы и цифры" required>
+                            <div class="invalid-feedback">
+                                <span class="invalidText"></span>
+                            </div>
+                            <div class="valid-feedback">
+                                <span class="validText"></span>
+                            </div>
+                            <small id="loginHelp" class="form-text text-muted">С помощью него будешь входить в систему.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Пароль</label>
+                            <input type="password" class="form-control" id="newPassword" aria-describedby="passwordHelp" required>
+                            <small id="passwordHelp" class="form-text text-muted">Тс-с.</small>
+                        </div>
+                        <button class="btn btn-block btn-primary">Сохранить</button>
+                    </form>
+                </div>
+                <div class="collapse" id="addUser">
+                    <hr class="my-4">
+                    <form class="addUserForm">
+                        <div class="form-group">
+                            <label for="userInfo">Логин</label>
+                            <input type="text" class="form-control" id="userLogin" aria-describedby="loginHelp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userInfo">Пароль</label>
+                            <input type="password" class="form-control" id="userPassword" aria-describedby="passwordHelp" required>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">Вход</button>
+                    </form>
+                </div>
+            </div> 
+        </div>
+    </header>
+    <main style="margin-top: 350px;">
+        <div class="container">
+            <!--Таблица для обычных пользвателей -->
+            <table class="table userTable">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Фамилия</th>
+                        <th scope="col">Логин</th>
+                        <th scope="col">Дата регистрации</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tr">
+                        <td><span class="staticId"></span></td>
+                        <td><span class="staticName static"></span></td>
+                        <td><span class="staticSurname static"></td>
+                        <td><span class="staticLogin static"></td>
+                        <td><span class="staticDate static"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Таблица администраторов -->
+            <table class="table adminTable">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Фамилия</th>
+                        <th scope="col">Логин</th>
+                        <th scope="col">Пароль</th>
+                        <th scope="col">Роль</th>
+                        <th scope="col">Дата регистрации</th>
+                        <th scope="col" class="actions">Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tr">
+                        <td><span class="staticId"></span></td>
+                        <td><span class="staticName static"></span><input type="text" class="form-control editName edit" value="" required></td>
+                        <td><span class="staticSurname static"></span><input type="text" class="form-control editSurname edit" value="" required></td>
+                        <td><span class="staticLogin static"></span>
+                            <input type="text" class="form-control editLogin edit" value="">
+                        </td>
+                        <td><span class="staticPassword static"></span><input type="text" class="form-control editPassword edit" value=""></td>
+                        <td><span class="staticRole static"></span>
+                            <select class="form-control roleSelector edit">
+                                <option value="" class="editRole"></option>
+                                <option value="" class="role"></option>
+                              </select>
+                        </td>
+                        <td><span class="staticDate"></td>
+                        <td class="actions">
+                            <div class="row">
+                                <button class="btn btn-primary editUser static"><i class="fas fa-pen"></i></button>
+                                <button class="btn btn-primary saveUser edit"><i class="far fa-save"></i></button> 
+                                <button class="btn btn-danger delUser"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Уведомление -->
+    <div class="container fixed-top alertTitle">
+        <div class="alert alert-warning" role="alert">
+            <span class="alertText"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
